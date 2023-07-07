@@ -129,5 +129,10 @@ EXECUTAR MIGRATIONS
 ### Criar uma model users
 npx sequelize-cli model:genetare --name (nome da model) --attributes name:string,email:string,image:string
 
+### Começando a cadastrar, pegando os dados no mysql atraves da API
+Criar um diretório na raiz com nome de "controllers", em seguida o arquivo "users.js"
+no users.js chamar express, e em uma contante criar express.Router, apenas para rotas e exportar e importar no app.js
+No app.js "const users = require('./controllers/users')" invocar o arquivo das rotas e comecar usar
+
 
 

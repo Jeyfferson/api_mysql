@@ -8,6 +8,16 @@ const app = express();
 const mysql = require('mysql2');
 const db = require("./db/models");
 
+//Criar um middleware para receber os dados no corpo da requisição
+app.use(express.json());
+
+// Incluir controllers
+const users = require('./controllers/users');
+
+//Criar rotas
+app.use('/', users);
+
+
 /*
 const connection = mysql.createConnection({
    host: 'localhost',
