@@ -44,3 +44,12 @@ Agora criar o arquivo de configuração do seequilize, Cria varias pastas de arq
 ### npx sequelize-cli init
 
 Para organizar, criar um diretório db, e sem seguida colocar todos diretórios do sequelize no "db"
+Em seguida no diretório CONFIG, alterar o arquivo que está em json para js
+e exportar para usar suas credênciais do banco de dados quando nao se tem variaveis de ambientes.
+### config.json - config.js
+### modules.exports = {alterar as credenciais}
+
+Logo depois ir para o diretório models/index.js, e alterar a const config =..., pois está com o arquivo config.json
+
+Criar o banco de dados no MYSQL diretamente para evitar erros
+### CREATE DATABASE jobs_api CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci

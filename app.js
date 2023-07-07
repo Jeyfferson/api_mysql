@@ -6,6 +6,9 @@ const express = require('express');
 const app = express();
 //Incluindo o MYSQL e em seguida Criar a conexão com banco de dados
 const mysql = require('mysql2');
+const db = require("./db/models");
+
+/*
 const connection = mysql.createConnection({
    host: 'localhost',
    user: 'root',
@@ -16,11 +19,12 @@ const connection = mysql.createConnection({
 connection.connect((err)=>{
    console.log('Conexão com banco de dados com sucesso.')
 })
+*/
 
 
 //Criar a rota tipo GET  direcionando para a raiz do projeto
 app.get('/', (req, res) => {
-   res.send('Welcome to the portal');
+   res.send('Welcome to the portal 8080');
 })
 
 //Criando outra rota tipo GET direcionando para pagina Jobs
