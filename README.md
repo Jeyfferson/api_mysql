@@ -35,7 +35,12 @@ Sequelize é uma biblioteca do JS que facilita o gerenciamento do banco de dados
 ### npm i --save sequelize
 Em seguida instalar o banco de dados que será usado, no meu caso MYSQL
 ### npm i --save mysql2
-Vamos instar o sequelize-cli para ultilizar linhas de comando
 
+Vamos instar o sequelize-cli para ultilizar linhas de comando usada para criar modelos,
+configurações e arquivos de migração de banco de dados
+### npm i --save-dev sequelize-cli
 
+Agora criar o arquivo de configuração do seequilize, Cria varias pastas de arquivos para configuração do sequelize
+### npx sequelize-cli init
 
+Para organizar, criar um diretório db, e sem seguida colocar todos diretórios do sequelize no "db"
