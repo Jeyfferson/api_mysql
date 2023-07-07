@@ -126,6 +126,8 @@ Depois de criar o arquivo migration, agora exercutar
 EXECUTAR MIGRATIONS
 ### npx sequelize-cli db:migrate
 
+### Criar uma model users
+npx sequelize-cli model:genetare --name (nome da model) --attributes name:string,email:string,image:string
 
 
 
