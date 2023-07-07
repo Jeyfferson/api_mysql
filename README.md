@@ -53,3 +53,21 @@ Logo depois ir para o diretório models/index.js, e alterar a const config =...,
 
 Criar o banco de dados no MYSQL diretamente para evitar erros
 ### CREATE DATABASE jobs_api CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+
+Criando variaveis de ambientes (SEMPRE VENDO A DOCUMENTAÇÃO)
+### npm i --save dotenv
+Depois de criar a chamada para variaveis de ambientes na "config", incluir tbm no arquivo que faz conexão com db, "models/index.js"
+### require('dotenv').config()
+
+
+                      MIGRATE
+Primeiro vamos indicar onde está os diretórios do sequelize(models, config...), criar um arquivo na raiz de .sequelizerc
+depois de criado o arquivo seguindo a documentação
+
+Criar uma migrate
+### npx sequelize-cli migration:generate --name create-users
+
+Depois de criar o arquivo migration, agora exercutar
+EXECUTAR MIGRATIONS
+### npx sequelize-cli db:migrate
+

@@ -1,6 +1,8 @@
 //Normatizar o código, ajuda a evitar gambiarras
 'use strict';
 
+//Chamando a variavel de ambiente
+require('dotenv').config();
 // Permite trabalhar com o sistema do PC
 const fs = require('fs');
 // Fornece ultilitários para trabalhar com caminhos de arquivos e diretórios
@@ -29,7 +31,8 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-/* Testar a conexão com banco de dados
+/*
+// Testar a conexão com banco de dados
 
 try {
   console.log('Realizado com sucesso')
