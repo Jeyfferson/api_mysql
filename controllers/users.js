@@ -80,6 +80,36 @@ router.get("/users", async (req, res) => {
    }
 })
 
+//Visualizar Cadastro
+//Endereço para acessar  através da aplicação externa http://localhost/8080/users?page=7
+router.get("/users/:id", async (req, res) => {
+
+   //Receber parâmetro id
+   const { id } = req.params;
+   //console.log(id)
+
+   //Recuperar o registro do banco de dados
+   const user = await db.Users.findOne({
+      //Indicar quais colunas recuperar
+      attributes: ['id', 'name', 'email', 'createdAt', 'updatedAt'],
+      //Acrecentando condição para indicar qual registro deve ser retornado no banco de dados
+      where: {id: id}
+   });
+   //console.log(user)
+
+   //Acessar o IF  se encontrar o registro no banco de dados
+   if(user){
+      // Pausar processamento e retornar os dados
+      return res.json({
+         user: user.dataValues
+      })
+   }else{
+      //Pausar o processamento e retornar a mensagem de erro!
+      return res.status(400).json({
+         message: "ERRO: Nenhum registro encontrado!"
+      });
+   }
+})
 
 //Rota de cadastro
 router.post(`/users`, async (req, res) => {
