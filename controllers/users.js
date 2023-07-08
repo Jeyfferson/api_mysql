@@ -80,7 +80,7 @@ router.get("/users", async (req, res) => {
    }
 })
 
-//Visualizar Cadastro
+// Criar rota de visualizar Cadastro
 //Endereço para acessar  através da aplicação externa http://localhost/8080/users?page=7
 router.get("/users/:id", async (req, res) => {
 
@@ -111,7 +111,7 @@ router.get("/users/:id", async (req, res) => {
    }
 })
 
-//Rota de cadastro
+//Criar Rota de cadastro
 router.post(`/users`, async (req, res) => {
 
    //Receber os dados enviados no body request
@@ -134,5 +134,27 @@ router.post(`/users`, async (req, res) => {
    })
 })
 
+// Criar rota editar e receber o parâmetro id enviado da URL
+router.put("/users", async (req, res) => {
+
+   // Receber os dados enviados no corpo da requisição
+   var dados = req.body;
+   //console.log(dados)
+
+   //Editar no banco de dados
+   await db.Users.update(dados, {where: {id: dados.id}})
+   .then(() => {
+      //Pausar o processamento e retornar a mensagem
+      return res.json({
+         message: "Usuário editado com sucesso!"
+      });
+   })
+   .catch(() => {
+      //Pausar o processamento e retornar a mensagem de error
+      return res.status(400).json({
+         message: `ERRO: Usuário não editado error: `
+      });
+   });
+})
 
 module.exports = router;
