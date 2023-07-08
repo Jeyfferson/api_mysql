@@ -134,7 +134,3 @@ Criar um diretório na raiz com nome de "controllers", em seguida o arquivo "use
 no users.js chamar express, e em uma contante criar express.Router, apenas para rotas e exportar e importar no app.js
 No app.js "const users = require('./controllers/users')" invocar o arquivo das rotas e comecar usar
 
-
-
-
-### 16minutos ###

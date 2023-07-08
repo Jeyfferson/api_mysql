@@ -5,6 +5,7 @@ const router = express.Router()
 const db = require('./../db/models')
 
 //Criar rota de listar
+//Endereço para acessar  através da aplicação externa http://localhost/8080/users?page=2
 router.get("/users", async (req, res) => {
 
    //Receber o  número da pag, quando nao enviado p número da pagina é atribuido página 1
@@ -19,7 +20,7 @@ router.get("/users", async (req, res) => {
 
    //conta a quantidade  de registro de banco de dados
    const countUser = await db.Users.count();
-   console.log(countUser)
+   //console.log(countUser)
 
    //Acessa o IF quando encontrar o registro no banco de dados
    if(countUser !== 0) {
@@ -34,7 +35,7 @@ router.get("/users", async (req, res) => {
    }
 
    //calculo de dados por pagina
-   console.log((page * limit) - limit)
+   //console.log((page * limit) - limit)
 
    //Recuperar todos os usuarios do banco
    const users = await db.Users.findAll({
@@ -59,7 +60,11 @@ router.get("/users", async (req, res) => {
          //Página anterior
          prev_page_url: page - 1 >= 1 ? page - 1 : false,
          //Próxima página
-         next_page_url: page + 1 >= lastPage ? lastPage : page + 1,
+         next_page_url: Number(page) + 1 > Number(lastPage) ? Number(lastPage) : Number(page) + 1,
+         //Retorna a ultima pagina
+         lastPage: lastPage,
+         //Quantidade de registro
+         total: countUser
       }
 
       //Pausar o processamento e retornar os dados em formato de objeto
